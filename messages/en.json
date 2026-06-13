@@ -1,0 +1,307 @@
+{
+  "metadata": {
+    "title": "New Muslim Academy | New Muslim Classes Online",
+    "description": "Your Day-After-Shahadah people championing New Muslim education. Free online Islamic courses, mentorship, and community."
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "liveEvents": "Live Events",
+    "blog": "Blog",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "login": "Login",
+    "joinToday": "Join Today",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Switch language"
+  },
+  "hero": {
+    "eyebrow": "Your",
+    "headline1": "Day-After-Shahadah",
+    "headline2": "people championing the",
+    "headline3": "New Muslim Education.",
+    "description": "Structured online Islamic courses, mentorship, and a community of new Muslims walking the same path — completely free.",
+    "cta": "Get YOUR Free Access",
+    "watchVideo": "Watch the intro",
+    "step1": "Watch Online Video Classes",
+    "step2": "Meet & Connect with Community",
+    "step3": "Complete Modules & Earn Certificates",
+    "scrollHint": "Scroll to explore"
+  },
+  "resource": {
+    "heading": "One Stop Resource Centre for New Muslim Classes Online",
+    "body": "If you think back to the moment you took your shahada and became a Muslim, you probably felt both excited and nervous all at once. Like the start of any new journey, adopting a new faith identity can feel really overwhelming at first — there are so many different things to learn and implement. That's where the New Muslim Academy comes in. When you become a member of the New Muslim Academy, you'll have access to a great community of people and resources that are relevant to your needs. NMA instructors are highly qualified and have been teaching Islam around the globe for many years. You'll be able to learn new things about the faith, engage in discussions with fellow new Muslims, and access a long list of experienced teachers and mentors. So join now and get started.",
+    "cta": "Join Now"
+  },
+  "features": {
+    "eyebrow": "What you'll get",
+    "heading": "Everything you need on your journey",
+    "subheading": "From your first prayer to your first Ramadan and beyond — every step, supported.",
+    "card1": {
+      "title": "Video Classes & Webinars",
+      "body": "Super FUN & STRUCTURED curriculum. Mentors that CARE for you & WILL be there for you. Weekly discussions & academic challenges. Meet & celebrate with other new Muslims."
+    },
+    "card2": {
+      "title": "Personal Members Portal",
+      "body": "Direct access to resource videos, live classes, and a supportive community of new Muslims, specialized teachers, and qualified mentors. They've all got your back at this critical stage of your life."
+    },
+    "card3": {
+      "title": "Live Interaction",
+      "body": "Direct access to all of our instructors — you will never be alone. Our online resource tools provide unique, unparalleled access to a community filled with individuals like yourself."
+    }
+  },
+  "free": {
+    "eyebrow": "The Best Part?",
+    "heading": "It's 100% Free",
+    "badgeTitle": "Yours, freely",
+    "badgeText": "Thanks to generous donors, we're able to meet our high professional standards of service while keeping it all FREE for you. All we ask is that you pray for us too :)",
+    "items": {
+      "consultation": "1-on-1 Consultation",
+      "mentorship": "Mentorship From Start to Finish",
+      "quran": "Quran Classes",
+      "fatiha": "Private Help with Surat'l-Fatiha",
+      "certificates": "Certificates"
+    },
+    "cta": "Join Today"
+  },
+  "testimonials": {
+    "eyebrow": "Stories",
+    "heading": "Words from our students",
+    "items": [
+      {
+        "quote": "NMA has filled a void that life can leave. Once I testified my Shahadah, even though I wanted to drop everything and move into a mosque (figuratively) to learn as much as possible, the constraints of life continued with work and my family. NMA has provided an opportunity to still get more knowledge than the weekly Khutbahs and self study of the Qur'an can provide.",
+        "author": "Chris",
+        "location": "Canada"
+      },
+      {
+        "quote": "The mentors at NMA truly care. They answered every question I had without judgment and guided me through my first Ramadan with patience and wisdom.",
+        "author": "Aisha",
+        "location": "United Kingdom"
+      },
+      {
+        "quote": "I felt so alone after converting. NMA gave me a family — brothers and sisters who understand exactly what I'm going through.",
+        "author": "David",
+        "location": "United States"
+      },
+      {
+        "quote": "The structured curriculum gave me a roadmap when I had no idea where to start. Six months in and I'm praying five times a day with confidence.",
+        "author": "Maria",
+        "location": "Spain"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Your Day-After-Shahadah support system.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "connect": "Connect",
+    "navGuide": "Navigation Guide",
+    "studentForum": "Student Forum",
+    "helpDesk": "Help Desk",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "copyright": "© {year} New Muslim Academy.",
+    "madeWith": "Made with care for the Ummah",
+    "newsletter": {
+      "title": "Stay connected",
+      "body": "Get monthly emails with new courses, events, and reminders.",
+      "placeholder": "Your email",
+      "cta": "Subscribe"
+    }
+  },
+  "courses": {
+    "hero": {
+      "breadcrumb": "Courses",
+      "title": "Our Courses",
+      "subtitle": "Structured learning paths designed for new Muslims."
+    },
+    "filters": {
+      "all": "All Courses",
+      "foundations": "Foundations of Faith",
+      "worship": "Worship & Prayer",
+      "quran": "Quran Studies",
+      "character": "Islamic Character",
+      "history": "Islamic History",
+      "advanced": "Advanced Topics"
+    },
+    "card": {
+      "lessons": "{count} lessons",
+      "duration": "{hours}h",
+      "startLearning": "Start Learning",
+      "continue": "Continue",
+      "free": "Free",
+      "levelBeginner": "Beginner",
+      "levelIntermediate": "Intermediate",
+      "levelAdvanced": "Advanced"
+    },
+    "detail": {
+      "overview": "Overview",
+      "curriculum": "Curriculum",
+      "instructor": "Your Instructor",
+      "reviews": "Student Reviews",
+      "related": "Related Courses",
+      "enroll": "Enroll for Free",
+      "enrolled": "Enrolled",
+      "lessons": "Lessons",
+      "modules": "Modules"
+    }
+  },
+  "events": {
+    "hero": {
+      "title": "Join Our Live Sessions",
+      "subtitle": "{count} upcoming events"
+    },
+    "tabs": {
+      "upcoming": "Upcoming",
+      "past": "Past Sessions"
+    },
+    "card": {
+      "register": "Register",
+      "addCalendar": "Add to Calendar",
+      "watchReplay": "Watch Replay",
+      "live": "Live now",
+      "startsIn": "Starts in"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Knowledge Hub",
+      "subtitle": "Articles for new Muslims, by new Muslims and seasoned scholars."
+    },
+    "search": "Search articles",
+    "filters": {
+      "all": "All",
+      "character": "Character",
+      "worship": "Worship",
+      "community": "Community",
+      "stories": "Converts' Stories",
+      "quran": "Quran",
+      "lifestyle": "Lifestyle"
+    },
+    "readMore": "Read article",
+    "readTime": "{minutes} min read",
+    "share": "Share",
+    "relatedArticles": "Related articles",
+    "author": "Author"
+  },
+  "faq": {
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you might wonder about NMA — answered."
+    },
+    "search": "Search questions",
+    "categories": {
+      "general": "General",
+      "courses": "Courses",
+      "technical": "Technical",
+      "community": "Community",
+      "mentorship": "Mentorship"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Championing New Muslim Education Worldwide",
+      "subtitle": "Built by new Muslims, for new Muslims — with the guidance of seasoned scholars."
+    },
+    "story": {
+      "title": "Our Story",
+      "body": "New Muslim Academy started in a coffee shop. A handful of converts, all asking the same question: “where were the people like us when we needed them?” We decided to be those people. Today, NMA serves tens of thousands of new Muslims in over 25 countries — every course, every mentor session, every certificate, free."
+    },
+    "stats": {
+      "students": "Students Worldwide",
+      "courses": "Free Courses",
+      "countries": "Countries Reached",
+      "satisfaction": "Student Satisfaction"
+    },
+    "team": "Meet the Team",
+    "partners": "Partners & Donors",
+    "joinTeam": "Join Our Team"
+  },
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "We typically respond within 24 hours."
+    },
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thanks — we'll be in touch soon.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "email": "HelpDesk@NewMuslimAcademy.org",
+      "phone": "(917) 775-6299",
+      "hours": "9am – 5pm EST"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Continue your journey.",
+      "email": "Email",
+      "password": "Password",
+      "remember": "Remember me",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "noAccount": "New here?",
+      "signup": "Create an account"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Free, forever — like everything else here.",
+      "name": "Full name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Create account",
+      "haveAccount": "Already a member?",
+      "signin": "Sign in"
+    },
+    "forgotPassword": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "email": "Email",
+      "submit": "Send reset link",
+      "sent": "If an account exists for {email}, we've sent a reset link.",
+      "backToLogin": "Back to sign in"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {name}",
+    "subtitle": "Pick up where you left off.",
+    "continueLearning": "Continue Learning",
+    "todaysSchedule": "Today's Schedule",
+    "achievements": "Achievements",
+    "community": "Community Activity",
+    "weeklyGoal": "Weekly Goal",
+    "sidebar": {
+      "overview": "Overview",
+      "myCourses": "My Courses",
+      "progress": "Progress",
+      "certificates": "Certificates",
+      "settings": "Settings"
+    },
+    "noProgress": "No courses in progress yet.",
+    "exploreCourses": "Explore courses"
+  },
+  "common": {
+    "loading": "Loading…",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "tryAgain": "Try again",
+    "notFound": "Not found",
+    "backHome": "Back to home"
+  },
+  "notFound": {
+    "title": "Lost on the path?",
+    "subtitle": "The page you're looking for has moved or never existed.",
+    "cta": "Take me home"
+  }
+}

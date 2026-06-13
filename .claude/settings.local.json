@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm install *)",
+      "PowerShell(npm view *)",
+      "PowerShell(npm run *)",
+      "PowerShell(nvm use *)",
+      "Bash(xxd \"F:/My Work/My Projects/new-muslim-academy/app/icon.svg\")"
+    ]
+  }
+}

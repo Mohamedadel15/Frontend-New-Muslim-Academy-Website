@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn theme tokens */
+    --background: 0 0% 100%;
+    --foreground: 240 24% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 24% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 24% 14%;
+
+    --primary: 240 28% 14%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 24% 14%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 43 79% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 43 79% 46%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 240 24% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 22% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 22% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 24% 14%;
+
+    --secondary: 240 16% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 16% 18%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 43 79% 46%;
+    --accent-foreground: 240 24% 14%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 16% 20%;
+    --input: 240 16% 20%;
+    --ring: 43 79% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image:
+      radial-gradient(at 20% 0%, rgba(212, 160, 23, 0.04) 0px, transparent 50%),
+      radial-gradient(at 80% 100%, rgba(45, 19, 44, 0.05) 0px, transparent 50%);
+  }
+
+  ::selection {
+    @apply bg-accent/80 text-primary-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight;
+  }
+
+  /* RTL adjustments */
+  [dir='rtl'] body {
+    @apply font-arabic;
+  }
+
+  [dir='rtl'] .ltr-only {
+    display: none;
+  }
+
+  [dir='ltr'] .rtl-only {
+    display: none;
+  }
+}
+
+@layer components {
+  .container-pad {
+    @apply container px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  }
+
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 160, 23, 0.15);
+  }
+
+  .gold-text {
+    @apply bg-gradient-to-r from-accent-300 via-accent-500 to-accent-300 bg-clip-text text-transparent;
+  }
+
+  .arabesque-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(212, 160, 23, 0.4),
+      transparent
+    );
+  }
+
+  .arabesque-divider::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    background: #d4a017;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 1px;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-32;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .mask-fade-r {
+    mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
