@@ -1,7 +1,21 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { LayoutGrid, BookOpen, TrendingUp, Award, Settings, LogOut } from 'lucide-react';
+import {
+  LayoutGrid,
+  BookOpen,
+  TrendingUp,
+  Award,
+  Settings,
+  LogOut,
+  CalendarCheck,
+  Video,
+  Users,
+  Upload,
+  Compass,
+  GraduationCap,
+  type LucideIcon,
+} from 'lucide-react';
 import { Link, usePathname, useRouter } from '@/lib/navigation';
 import { Logo } from '@/components/shared/Logo';
 import { cn } from '@/lib/utils';
@@ -9,20 +23,36 @@ import { useAuthStore } from '@/stores/authStore';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 
-const items = [
-  { href: '/dashboard', key: 'overview', Icon: LayoutGrid, end: true },
-  { href: '/dashboard/my-courses', key: 'myCourses', Icon: BookOpen, end: false },
-  { href: '/dashboard/progress', key: 'progress', Icon: TrendingUp, end: false },
-  { href: '/dashboard/certificates', key: 'certificates', Icon: Award, end: false },
-  { href: '/dashboard/settings', key: 'settings', Icon: Settings, end: false },
-] as const;
+type Item = { href: string; label: string; Icon: LucideIcon; end: boolean };
+
+const learnerItems: Item[] = [
+  { href: '/dashboard', label: 'Overview', Icon: LayoutGrid, end: true },
+  { href: '/dashboard/teachers', label: 'Find a teacher', Icon: Compass, end: false },
+  { href: '/dashboard/my-courses', label: 'My Courses', Icon: BookOpen, end: false },
+  { href: '/dashboard/sessions', label: 'My Sessions', Icon: Video, end: false },
+  { href: '/dashboard/progress', label: 'Progress', Icon: TrendingUp, end: false },
+  { href: '/dashboard/certificates', label: 'Certificates', Icon: Award, end: false },
+  { href: '/dashboard/settings', label: 'Settings', Icon: Settings, end: false },
+];
+
+const teacherItems: Item[] = [
+  { href: '/dashboard/teacher', label: 'Teacher overview', Icon: LayoutGrid, end: true },
+  { href: '/dashboard/teacher/requests', label: 'Booking requests', Icon: CalendarCheck, end: false },
+  { href: '/dashboard/teacher/sessions', label: 'My sessions', Icon: Video, end: false },
+  { href: '/dashboard/teacher/content', label: 'My content', Icon: Upload, end: false },
+  { href: '/dashboard/teacher/subjects', label: 'Subjects I teach', Icon: GraduationCap, end: false },
+  { href: '/dashboard/teacher/students', label: 'Students', Icon: Users, end: false },
+  { href: '/dashboard/settings', label: 'Settings', Icon: Settings, end: false },
+];
 
 export function DashboardSidebar() {
-  const t = useTranslations('dashboard.sidebar');
   const tNav = useTranslations('nav');
   const pathname = usePathname();
   const router = useRouter();
-  const { user, logout } = useAuthStore();
+  const { user, logout, setRole } = useAuthStore();
+
+  const isTeacher = user?.role === 'teacher';
+  const items = isTeacher ? teacherItems : learnerItems;
 
   return (
     <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r border-border bg-card">
@@ -30,8 +60,33 @@ export function DashboardSidebar() {
         <Logo />
       </div>
 
-      <nav className="flex-1 px-4 space-y-1">
-        {items.map(({ href, key, Icon, end }) => {
+      <div className="mx-4 mb-4 rounded-2xl border border-border/60 bg-secondary/40 p-1 text-xs">
+        <div className="grid grid-cols-2 gap-1">
+          <button
+            type="button"
+            onClick={() => setRole('learner')}
+            className={cn(
+              'rounded-xl px-3 py-2 font-medium transition-all',
+              !isTeacher ? 'bg-accent text-primary-foreground shadow-gold-glow' : 'text-muted-foreground'
+            )}
+          >
+            Learner
+          </button>
+          <button
+            type="button"
+            onClick={() => setRole('teacher')}
+            className={cn(
+              'rounded-xl px-3 py-2 font-medium transition-all',
+              isTeacher ? 'bg-accent text-primary-foreground shadow-gold-glow' : 'text-muted-foreground'
+            )}
+          >
+            Teacher
+          </button>
+        </div>
+      </div>
+
+      <nav className="flex-1 overflow-y-auto px-4 space-y-1 pb-4">
+        {items.map(({ href, label, Icon, end }) => {
           const active = end ? pathname === href : pathname.startsWith(href);
           return (
             <Link
@@ -45,7 +100,7 @@ export function DashboardSidebar() {
               )}
             >
               <Icon className="size-4" />
-              {t(key)}
+              {label}
             </Link>
           );
         })}
@@ -58,7 +113,9 @@ export function DashboardSidebar() {
           </Avatar>
           <div className="min-w-0 flex-1">
             <p className="text-sm font-medium truncate">{user?.name ?? 'Student'}</p>
-            <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
+            <p className="text-xs text-muted-foreground truncate">
+              {isTeacher ? 'Teacher' : 'Learner'}
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-2">

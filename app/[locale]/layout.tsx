@@ -9,6 +9,7 @@ import { QueryProvider } from '@/components/providers/QueryProvider';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { ScrollProgress } from '@/components/animations/ScrollProgress';
 import { CursorGlow } from '@/components/animations/CursorGlow';
+import { SplashGate } from '@/components/shared/SplashGate';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -98,6 +99,7 @@ export default async function LocaleLayout({
       <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider>
           <QueryProvider>
+            <SplashGate />
             <ScrollProgress />
             <CursorGlow />
             {children}

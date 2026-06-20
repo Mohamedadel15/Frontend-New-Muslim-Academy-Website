@@ -28,6 +28,7 @@ import { useAuthStore } from '@/stores/authStore';
 
 const navItems = [
   { href: '/courses', key: 'courses' },
+  { href: '/teachers', key: 'teachers' },
   { href: '/live-events', key: 'liveEvents' },
   { href: '/blog', key: 'blog' },
   { href: '/about', key: 'about' },
