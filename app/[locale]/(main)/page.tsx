@@ -5,6 +5,7 @@ import { FeatureCards } from '@/components/sections/FeatureCards';
 import { FreeShowcase } from '@/components/sections/FreeShowcase';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { StatsCounter } from '@/components/sections/StatsCounter';
+import { TeachersSpotlight } from '@/components/sections/TeachersSpotlight';
 
 export default async function HomePage({
   params,
@@ -19,6 +20,7 @@ export default async function HomePage({
       <Hero />
       <OneStopResource />
       <FeatureCards />
+      <TeachersSpotlight />
       <StatsCounter />
       <FreeShowcase />
       <Testimonials />
