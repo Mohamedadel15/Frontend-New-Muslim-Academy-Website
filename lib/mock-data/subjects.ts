@@ -1,0 +1,88 @@
+import type { Subject } from '@/types/teacher';
+
+export const subjects: Subject[] = [
+  {
+    slug: 'quran',
+    name: 'Quran Recitation',
+    nameAr: 'تلاوة القرآن',
+    blurb: 'Learn to read the Book of Allah with proper articulation and reverence.',
+    icon: 'book-open',
+    gradient: 'from-amber-400/30 via-amber-500/10 to-transparent',
+    color: '#d4a017',
+    teacherCount: 14,
+  },
+  {
+    slug: 'tajweed',
+    name: 'Tajweed Rules',
+    nameAr: 'أحكام التجويد',
+    blurb: 'Master the science of recitation — from makharij to advanced rulings.',
+    icon: 'music-2',
+    gradient: 'from-emerald-400/30 via-emerald-500/10 to-transparent',
+    color: '#10b981',
+    teacherCount: 9,
+  },
+  {
+    slug: 'arabic',
+    name: 'Arabic Language',
+    nameAr: 'اللغة العربية',
+    blurb: 'Read, write and speak classical Arabic — the language of revelation.',
+    icon: 'languages',
+    gradient: 'from-sky-400/30 via-sky-500/10 to-transparent',
+    color: '#0ea5e9',
+    teacherCount: 11,
+  },
+  {
+    slug: 'fiqh',
+    name: 'Fiqh & Worship',
+    nameAr: 'الفقه والعبادات',
+    blurb: 'Understand the rulings that shape your prayer, fasting and daily acts.',
+    icon: 'scale',
+    gradient: 'from-violet-400/30 via-violet-500/10 to-transparent',
+    color: '#8b5cf6',
+    teacherCount: 8,
+  },
+  {
+    slug: 'aqeedah',
+    name: 'Aqeedah',
+    nameAr: 'العقيدة',
+    blurb: 'Build a clear, grounded understanding of Islamic belief.',
+    icon: 'shield-check',
+    gradient: 'from-rose-400/30 via-rose-500/10 to-transparent',
+    color: '#f43f5e',
+    teacherCount: 7,
+  },
+  {
+    slug: 'tafseer',
+    name: 'Tafseer',
+    nameAr: 'التفسير',
+    blurb: 'Walk through the meanings of the Qur’an verse by verse.',
+    icon: 'sparkles',
+    gradient: 'from-yellow-400/30 via-yellow-500/10 to-transparent',
+    color: '#f59e0b',
+    teacherCount: 6,
+  },
+  {
+    slug: 'seerah',
+    name: 'Seerah',
+    nameAr: 'السيرة النبوية',
+    blurb: 'Walk alongside the Prophet ✌ peace be upon him — from Makkah to Madinah.',
+    icon: 'compass',
+    gradient: 'from-teal-400/30 via-teal-500/10 to-transparent',
+    color: '#14b8a6',
+    teacherCount: 5,
+  },
+  {
+    slug: 'hadith',
+    name: 'Hadith Studies',
+    nameAr: 'علوم الحديث',
+    blurb: 'Study authenticated traditions and the methodology of the scholars.',
+    icon: 'feather',
+    gradient: 'from-orange-400/30 via-orange-500/10 to-transparent',
+    color: '#f97316',
+    teacherCount: 4,
+  },
+];
+
+export function getSubject(slug: string): Subject | undefined {
+  return subjects.find((s) => s.slug === slug);
+}

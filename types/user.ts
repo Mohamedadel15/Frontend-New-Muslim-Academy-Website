@@ -1,3 +1,5 @@
+export type UserRole = 'learner' | 'teacher';
+
 export interface User {
   id: string;
   name: string;
@@ -5,6 +7,8 @@ export interface User {
   avatar?: string;
   joinedAt: string;
   locale: 'en' | 'ar';
+  role?: UserRole;
+  teacherSlug?: string;
 }
 
 export interface RegisterData {

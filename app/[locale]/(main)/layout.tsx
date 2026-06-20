@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/shared/Navbar';
 import { Footer } from '@/components/shared/Footer';
+import { RouteTransition } from '@/components/shared/RouteTransition';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       </a>
       <Navbar />
       <main id="main" className="relative">
-        {children}
+        <RouteTransition>{children}</RouteTransition>
       </main>
       <Footer />
     </>

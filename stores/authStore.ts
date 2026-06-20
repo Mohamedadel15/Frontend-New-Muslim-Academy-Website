@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { User, RegisterData } from '@/types/user';
+import type { User, RegisterData, UserRole } from '@/types/user';
 
 interface AuthState {
   user: User | null;
@@ -10,6 +10,7 @@ interface AuthState {
   register: (data: RegisterData) => Promise<void>;
   logout: () => void;
   setUser: (user: User) => void;
+  setRole: (role: UserRole, teacherSlug?: string) => void;
 }
 
 const mockUser = (name: string, email: string): User => ({
@@ -19,6 +20,7 @@ const mockUser = (name: string, email: string): User => ({
   avatar: undefined,
   joinedAt: new Date().toISOString(),
   locale: 'en',
+  role: 'learner',
 });
 
 export const useAuthStore = create<AuthState>()(
@@ -48,6 +50,19 @@ export const useAuthStore = create<AuthState>()(
       },
       logout: () => set({ user: null, isAuthenticated: false }),
       setUser: (user) => set({ user, isAuthenticated: true }),
+      setRole: (role, teacherSlug) =>
+        set((s) =>
+          s.user
+            ? {
+                user: {
+                  ...s.user,
+                  role,
+                  teacherSlug:
+                    role === 'teacher' ? teacherSlug ?? s.user.teacherSlug ?? 'sh-yusuf-bilal' : undefined,
+                },
+              }
+            : s
+        ),
     }),
     {
       name: 'nma-auth',

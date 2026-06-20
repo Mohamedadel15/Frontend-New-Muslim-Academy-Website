@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from '@/lib/navigation';
 import { useAuthStore } from '@/stores/authStore';
+import { LoadingScreen } from '@/components/shared/LoadingScreen';
 
 export function AuthGate({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -20,11 +21,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   }, [hydrated, isAuthenticated, router]);
 
   if (!hydrated) {
-    return (
-      <div className="min-h-screen grid place-items-center">
-        <div className="size-8 rounded-full border-2 border-accent border-t-transparent animate-spin" />
-      </div>
-    );
+    return <LoadingScreen label="Opening your dashboard" caption="Restoring your session." />;
   }
 
   if (!isAuthenticated) return null;
