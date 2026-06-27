@@ -52,7 +52,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@NewMuslimAcademy',
+      site: '@dmmakkah',
       title: t('title'),
       description: t('description'),
     },
@@ -74,18 +74,20 @@ export default async function LocaleLayout({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
-    name: SITE.name,
+    '@type': 'NGO',
+    name: SITE.nameLong,
+    alternateName: SITE.nameArLong,
     description: SITE.description,
     url: SITE.url,
-    logo: `${SITE.url}/logo.png`,
-    sameAs: Object.values(SITE.social),
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
+    logo: `${SITE.url}/icon-512.png`,
+    email: SITE.email,
+    telephone: SITE.phone,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Makkah',
+      addressCountry: 'SA',
     },
+    sameAs: Object.values(SITE.social),
   };
 
   return (

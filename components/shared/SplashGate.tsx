@@ -22,7 +22,7 @@ export function SplashGate() {
 
   return (
     <LoadingScreen
-      label="New Muslim Academy"
+      label="Da'wah & Guidance Society"
       caption="Welcome — your free Islamic learning home."
       autoFinish={2400}
       onFinish={() => show_(false)}

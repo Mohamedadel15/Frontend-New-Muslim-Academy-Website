@@ -47,12 +47,16 @@ export default async function BlogPostPage({
   const post = getPost(slug);
   if (!post) notFound();
   const currentLocale = await getLocale();
+  const isAr = currentLocale === 'ar';
+
+  const title = isAr && post.titleAr ? post.titleAr : post.title;
+  const content = isAr && post.contentAr ? post.contentAr : post.content;
 
   const related = blogPosts
     .filter((p) => p.slug !== post.slug && p.category === post.category)
     .slice(0, 3);
 
-  const paragraphs = post.content
+  const paragraphs = content
     .split('\n\n')
     .map((p) => p.trim())
     .filter(Boolean);
@@ -61,10 +65,10 @@ export default async function BlogPostPage({
     <>
       <PageHero
         eyebrow={post.category}
-        title={post.title}
+        title={title}
         breadcrumb={[
-          { href: '/blog', label: 'Blog' },
-          { href: `/blog/${post.slug}`, label: post.title },
+          { href: '/blog', label: isAr ? 'المدونة' : 'Blog' },
+          { href: `/blog/${post.slug}`, label: title },
         ]}
       />
 
@@ -73,7 +77,7 @@ export default async function BlogPostPage({
           <div className="relative mx-auto max-w-4xl aspect-[16/9] overflow-hidden rounded-3xl border border-border/60 shadow-elevated">
             <Image
               src={post.coverImage}
-              alt={post.title}
+              alt={title}
               fill
               priority
               sizes="(max-width: 1280px) 100vw, 1024px"
@@ -95,7 +99,7 @@ export default async function BlogPostPage({
                   {formatDate(post.publishedAt, currentLocale)}
                   <span>·</span>
                   <Clock className="size-3" />
-                  {post.readMinutes} min read
+                  {isAr ? `${post.readMinutes} دقائق قراءة` : `${post.readMinutes} min read`}
                 </p>
               </div>
               <Badge variant="default" className="ml-auto">
@@ -131,7 +135,7 @@ export default async function BlogPostPage({
             </div>
 
             <div className="mt-16 flex items-center justify-between border-y border-border/60 py-6">
-              <p className="text-sm font-medium">Share this article</p>
+              <p className="text-sm font-medium">{isAr ? 'شارك هذا المقال' : 'Share this article'}</p>
               <div className="flex gap-2">
                 {[
                   { Icon: Twitter, label: 'Twitter' },
@@ -166,24 +170,27 @@ export default async function BlogPostPage({
 
         {related.length > 0 && (
           <FadeIn className="mx-auto mt-24 max-w-5xl">
-            <h2 className="font-display text-3xl mb-8">Related articles</h2>
+            <h2 className="font-display text-3xl mb-8">{isAr ? 'مقالات ذات صلة' : 'Related articles'}</h2>
             <div className="grid gap-6 md:grid-cols-3">
-              {related.map((p) => (
+              {related.map((p) => {
+                const relTitle = isAr && p.titleAr ? p.titleAr : p.title;
+                return (
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}` as never}
                   className="group block overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:-translate-y-1"
                 >
                   <div className="relative aspect-video">
-                    <Image src={p.coverImage} alt={p.title} fill sizes="33vw" className="object-cover" />
+                    <Image src={p.coverImage} alt={relTitle} fill sizes="33vw" className="object-cover" />
                   </div>
                   <div className="p-4">
                     <h3 className="font-display text-base leading-tight group-hover:text-accent">
-                      {p.title}
+                      {relTitle}
                     </h3>
                   </div>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </FadeIn>
         )}

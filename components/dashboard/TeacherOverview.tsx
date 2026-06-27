@@ -28,7 +28,7 @@ export function TeacherOverview() {
   const { user, setRole } = useAuthStore();
   const bookings = useBookingStore((s) => s.bookings);
 
-  const teacherSlug = user?.teacherSlug ?? 'sh-yusuf-bilal';
+  const teacherSlug = user?.teacherSlug ?? 'mohamed-thani-ahmed';
   const teacher = getTeacher(teacherSlug);
 
   const stats = useMemo(() => {

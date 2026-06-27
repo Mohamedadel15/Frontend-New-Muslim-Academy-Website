@@ -15,7 +15,7 @@ import { useAuthStore } from '@/stores/authStore';
 import { cn } from '@/lib/utils';
 
 export function TeacherContentManager() {
-  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'sh-yusuf-bilal');
+  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'mohamed-thani-ahmed');
   const teacher = getTeacher(teacherSlug);
 
   const [localItems, setLocalItems] = useState<TeacherContent[]>(() => contentByTeacher(teacherSlug));

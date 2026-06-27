@@ -13,6 +13,7 @@ export interface Subject {
   name: string;
   nameAr: string;
   blurb: string;
+  blurbAr?: string;
   icon: string;
   gradient: string;
   color: string;
@@ -39,9 +40,21 @@ export interface TeacherContent {
 export interface Teacher {
   slug: string;
   name: string;
+  /** Arabic form of the name, for bilingual display. */
+  nameAr?: string;
   title: string;
+  /** Expatriate community this da'i serves (e.g. "Ethiopian Community"). */
+  community?: string;
+  communityAr?: string;
+  /** Academic qualification (e.g. "MA in Hadith"). */
+  qualification?: string;
+  qualificationAr?: string;
+  phone?: string;
+  email?: string;
   bio: string;
+  bioAr?: string;
   longBio: string;
+  longBioAr?: string;
   avatar: string;
   cover: string;
   subjects: SubjectSlug[];

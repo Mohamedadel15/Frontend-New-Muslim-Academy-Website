@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, SlidersHorizontal, Sparkles, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -19,6 +20,8 @@ interface TeacherBrowserProps {
 }
 
 export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
+  const t = useTranslations('teachers');
+  const isAr = useLocale() === 'ar';
   const [activeSubject, setActiveSubject] = useState<string | undefined>(initialSubject);
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState<SortKey>('top');
@@ -26,15 +29,19 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
   const filtered = useMemo(() => {
     let list = teachers;
     if (activeSubject) {
-      list = list.filter((t) => t.subjects.includes(activeSubject as never));
+      list = list.filter((tc) => tc.subjects.includes(activeSubject as never));
     }
     if (query.trim()) {
       const q = query.toLowerCase();
       list = list.filter(
-        (t) =>
-          t.name.toLowerCase().includes(q) ||
-          t.title.toLowerCase().includes(q) ||
-          t.bio.toLowerCase().includes(q)
+        (tc) =>
+          tc.name.toLowerCase().includes(q) ||
+          (tc.nameAr ?? '').includes(query) ||
+          tc.title.toLowerCase().includes(q) ||
+          (tc.community ?? '').toLowerCase().includes(q) ||
+          (tc.communityAr ?? '').includes(query) ||
+          tc.bio.toLowerCase().includes(q) ||
+          (tc.bioAr ?? '').includes(query)
       );
     }
     if (sort === 'top') list = [...list].sort((a, b) => b.rating - a.rating);
@@ -50,27 +57,24 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
       <header className="mx-auto max-w-3xl text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent">
           <Sparkles className="size-3.5" />
-          One-on-one with qualified teachers — always free
+          {t('browserBadge')}
         </div>
         <h1 className="mt-6 font-display text-display-lg text-balance">
-          Find a teacher for the subject <span className="gold-text">you’re learning today.</span>
+          {t('browserTitle')} <span className="gold-text">{t('browserTitleAccent')}</span>
         </h1>
-        <p className="mt-4 text-muted-foreground">
-          Pick a subject, browse verified teachers, watch their lessons, then book a private Zoom
-          session — at your pace.
-        </p>
+        <p className="mt-4 text-muted-foreground">{t('browserSubtitle')}</p>
       </header>
 
       <section>
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="font-display text-xl">Pick a subject</h2>
+          <h2 className="font-display text-xl">{t('pickSubject')}</h2>
           {activeSubject && (
             <button
               type="button"
               onClick={() => setActiveSubject(undefined)}
               className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors"
             >
-              <X className="size-3.5" /> Clear filter
+              <X className="size-3.5" /> {t('clearFilter')}
             </button>
           )}
         </div>
@@ -90,15 +94,15 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
                       color: activeMeta.color,
                     }}
                   >
-                    {activeMeta.name}
+                    {isAr && activeMeta.nameAr ? activeMeta.nameAr : activeMeta.name}
                   </Badge>
                   <span className="text-sm text-muted-foreground">
-                    {filtered.length} teachers available
+                    {t('available', { count: filtered.length })}
                   </span>
                 </>
               ) : (
                 <span className="text-sm text-muted-foreground">
-                  Showing all {filtered.length} teachers
+                  {t('showingAll', { count: filtered.length })}
                 </span>
               )}
             </div>
@@ -109,16 +113,16 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
                 <Input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search by name or expertise"
+                  placeholder={t('searchPlaceholder')}
                   className="pl-9 rtl:pl-3 rtl:pr-9"
                 />
               </div>
               <div className="hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-background px-1 py-1 text-xs">
                 {(
                   [
-                    { k: 'top', label: 'Top rated' },
-                    { k: 'students', label: 'Most students' },
-                    { k: 'recent', label: 'Most active' },
+                    { k: 'top', label: t('sortTop') },
+                    { k: 'students', label: t('sortStudents') },
+                    { k: 'recent', label: t('sortActive') },
                   ] as { k: SortKey; label: string }[]
                 ).map(({ k, label }) => (
                   <button
@@ -154,10 +158,8 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
               exit={{ opacity: 0 }}
               className="rounded-3xl border border-dashed border-border/60 bg-card/40 p-16 text-center"
             >
-              <p className="font-display text-xl">No matches yet</p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Try a different subject — every subject has a teacher waiting.
-              </p>
+              <p className="font-display text-xl">{t('noMatches')}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{t('noMatchesBody')}</p>
               <Button
                 className="mt-6"
                 onClick={() => {
@@ -165,7 +167,7 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
                   setQuery('');
                 }}
               >
-                Reset filters
+                {t('resetFilters')}
               </Button>
             </motion.div>
           ) : (
@@ -186,9 +188,9 @@ export function TeacherBrowser({ initialSubject }: TeacherBrowserProps) {
 
       <section className="grid gap-4 rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/10 via-card to-card p-8 sm:grid-cols-3">
         {[
-          { n: '8', label: 'Subjects', sub: 'From Tajweed to Tafseer' },
-          { n: subjects.reduce((a, s) => a + s.teacherCount, 0).toString(), label: 'Verified teachers', sub: 'Carefully vetted scholars' },
-          { n: '100%', label: 'Free always', sub: 'No fees, no upsells' },
+          { n: '8', label: t('statSubjects'), sub: t('statSubjectsSub') },
+          { n: subjects.reduce((a, s) => a + s.teacherCount, 0).toString(), label: t('statTeachers'), sub: t('statTeachersSub') },
+          { n: '100%', label: t('statFree'), sub: t('statFreeSub') },
         ].map(({ n, label, sub }) => (
           <div key={label} className="text-center sm:border-r sm:border-border/60 sm:last:border-0">
             <p className="gold-text font-display text-3xl md:text-4xl">{n}</p>

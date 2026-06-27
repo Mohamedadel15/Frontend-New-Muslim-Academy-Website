@@ -13,6 +13,7 @@ import {
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/lib/navigation';
 import { subjects } from '@/lib/mock-data/subjects';
 import { cn } from '@/lib/utils';
@@ -39,6 +40,8 @@ const item = {
 };
 
 export function SubjectGallery({ activeSlug }: { activeSlug?: string }) {
+  const t = useTranslations('teachers');
+  const isAr = useLocale() === 'ar';
   return (
     <motion.div
       variants={container}
@@ -84,15 +87,19 @@ export function SubjectGallery({ activeSlug }: { activeSlug?: string }) {
                   <Icon className="size-5" />
                 </div>
 
-                <h3 className="mt-4 font-display text-lg leading-tight">{subject.name}</h3>
-                <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{subject.blurb}</p>
+                <h3 className="mt-4 font-display text-lg leading-tight">
+                  {isAr && subject.nameAr ? subject.nameAr : subject.name}
+                </h3>
+                <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">
+                  {isAr && subject.blurbAr ? subject.blurbAr : subject.blurb}
+                </p>
 
                 <div className="mt-5 flex items-center justify-between text-xs">
                   <span className="font-medium text-foreground/80">
-                    {subject.teacherCount} teachers
+                    {t('teacherCount', { count: subject.teacherCount })}
                   </span>
                   <span className="flex items-center gap-1 text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                    Browse <ArrowRight className="size-3 rtl:rotate-180" />
+                    {t('browse')} <ArrowRight className="size-3 rtl:rotate-180" />
                   </span>
                 </div>
               </div>

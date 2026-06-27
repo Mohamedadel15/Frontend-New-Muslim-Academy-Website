@@ -6,8 +6,9 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const title = searchParams.get('title') ?? 'New Muslim Academy';
-  const subtitle = searchParams.get('subtitle') ?? 'Free online Islamic education';
+  const title = searchParams.get('title') ?? "Da'wah & Guidance Society";
+  const subtitle = searchParams.get('subtitle') ?? 'Guiding new Muslims in Makkah Al-Mukarramah';
+  const emblem = `${req.nextUrl.origin}/brand/society-emblem.png`;
 
   return new ImageResponse(
     (
@@ -34,24 +35,23 @@ export async function GET(req: NextRequest) {
             background: 'radial-gradient(circle, rgba(212,160,23,0.3), transparent 70%)',
           }}
         />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div
-            style={{
-              width: 48,
-              height: 48,
-              background: 'linear-gradient(135deg, #f9d252, #a87d12)',
-              clipPath:
-                'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-            }}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={emblem}
+            width={64}
+            height={64}
+            alt=""
+            style={{ borderRadius: 9999, background: 'white' }}
           />
           <div
             style={{
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: 600,
               letterSpacing: '-0.02em',
             }}
           >
-            New Muslim Academy
+            Da&apos;wah &amp; Guidance Society · Makkah
           </div>
         </div>
         <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>

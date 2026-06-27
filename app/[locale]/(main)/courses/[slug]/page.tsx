@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { PlayCircle, Clock, BookOpen, Star, ArrowRight } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { PageHero } from '@/components/shared/PageHero';
@@ -15,6 +14,7 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CourseCard } from '@/components/courses/CourseCard';
+import { CourseIntroVideo } from '@/components/courses/CourseIntroVideo';
 import { EnrollButton } from '@/components/courses/EnrollButton';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { courses, getCourse } from '@/lib/mock-data/courses';
@@ -52,6 +52,12 @@ export default async function CourseDetailPage({
   const course = getCourse(slug);
   if (!course) notFound();
 
+  const isAr = locale === 'ar';
+  const title = isAr && course.titleAr ? course.titleAr : course.title;
+  const description = isAr && course.descriptionAr ? course.descriptionAr : course.description;
+  const longDescription =
+    isAr && course.longDescriptionAr ? course.longDescriptionAr : course.longDescription;
+
   const t = await getTranslations('courses.detail');
   const tHero = await getTranslations('courses.hero');
   const tCard = await getTranslations('courses.card');
@@ -64,11 +70,11 @@ export default async function CourseDetailPage({
     <>
       <PageHero
         eyebrow={tHero('breadcrumb')}
-        title={course.title}
-        subtitle={course.description}
+        title={title}
+        subtitle={description}
         breadcrumb={[
           { href: '/courses', label: tHero('breadcrumb') },
-          { href: `/courses/${course.slug}`, label: course.title },
+          { href: `/courses/${course.slug}`, label: title },
         ]}
       />
 
@@ -76,29 +82,16 @@ export default async function CourseDetailPage({
         <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
           <div className="space-y-12">
             <FadeIn>
-              <div className="relative aspect-video overflow-hidden rounded-3xl border border-border/60 shadow-elevated">
-                <Image
-                  src={course.thumbnail}
-                  alt={course.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                  priority
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 grid place-items-center bg-primary-900/40">
-                  <button
-                    aria-label="Play preview"
-                    className="grid size-20 place-items-center rounded-full bg-accent text-primary-foreground shadow-gold-glow transition-transform hover:scale-110"
-                  >
-                    <PlayCircle className="size-10" />
-                  </button>
-                </div>
-              </div>
+              <CourseIntroVideo
+                thumbnail={course.thumbnail}
+                title={title}
+                videoUrl={course.introVideoUrl}
+              />
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <h2 className="font-display text-3xl mb-4">{t('overview')}</h2>
-              <p className="text-muted-foreground leading-relaxed">{course.longDescription}</p>
+              <p className="text-muted-foreground leading-relaxed">{longDescription}</p>
             </FadeIn>
 
             <FadeIn delay={0.15}>
@@ -113,7 +106,7 @@ export default async function CourseDetailPage({
                             <span className="grid size-8 place-items-center rounded-full bg-accent/15 text-xs font-medium text-accent">
                               {i + 1}
                             </span>
-                            <span>{module.title}</span>
+                            <span>{isAr && module.titleAr ? module.titleAr : module.title}</span>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-4">
@@ -125,7 +118,7 @@ export default async function CourseDetailPage({
                               >
                                 <span className="flex items-center gap-3">
                                   <PlayCircle className="size-4 text-accent" />
-                                  {lesson.title}
+                                  {isAr && lesson.titleAr ? lesson.titleAr : lesson.title}
                                 </span>
                                 <span className="text-muted-foreground text-xs">
                                   {lesson.duration} min
@@ -178,8 +171,12 @@ export default async function CourseDetailPage({
                           <Star key={i} className="size-4 fill-current" />
                         ))}
                       </div>
-                      <p className="mt-3 text-sm leading-relaxed">{r.text}</p>
-                      <p className="mt-4 text-xs text-muted-foreground">— {r.author}</p>
+                      <p className="mt-3 text-sm leading-relaxed">
+                        {isAr && r.textAr ? r.textAr : r.text}
+                      </p>
+                      <p className="mt-4 text-xs text-muted-foreground">
+                        — {isAr && r.authorAr ? r.authorAr : r.author}
+                      </p>
                     </CardContent>
                   </Card>
                 ))}
@@ -196,7 +193,7 @@ export default async function CourseDetailPage({
                     {tCard(`level${course.level.charAt(0).toUpperCase()}${course.level.slice(1)}` as any)}
                   </Badge>
                 </div>
-                <CardTitle>{course.title}</CardTitle>
+                <CardTitle>{title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 pt-0">
                 <div className="space-y-3 text-sm">

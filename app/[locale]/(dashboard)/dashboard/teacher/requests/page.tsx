@@ -5,7 +5,7 @@ import { CalendarCheck } from 'lucide-react';
 import { BookingList } from '@/components/booking/BookingList';
 
 export default function TeacherRequestsPage() {
-  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'sh-yusuf-bilal');
+  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'mohamed-thani-ahmed');
 
   return (
     <div className="p-6 lg:p-10 space-y-10">

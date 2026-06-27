@@ -7,7 +7,13 @@
       "PowerShell(nvm use *)",
       "Bash(xxd \"F:/My Work/My Projects/new-muslim-academy/app/icon.svg\")",
       "Bash(npx tsc *)",
-      "Bash(echo \"EXIT: $?\")"
+      "Bash(echo \"EXIT: $?\")",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\m.adel\\\\Downloads\\\\\" -File | Where-Object { $_.Name -match '\\\\.\\(jpe?g|png|docx\\)$' } | Select-Object Name, Length, LastWriteTime | Format-Table -AutoSize)",
+      "WebFetch(domain:dm.org.sa)",
+      "WebFetch(domain:store.dm.org.sa)",
+      "WebSearch",
+      "Bash(npm run *)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/en.json','utf8'\\)\\); JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/ar.json','utf8'\\)\\); console.log\\('both JSON valid'\\);\")"
     ]
   }
 }

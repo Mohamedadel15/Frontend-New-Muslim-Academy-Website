@@ -111,6 +111,20 @@
   [dir='ltr'] .rtl-only {
     display: none;
   }
+
+  /* Bidirectional text correctness.
+     Form controls follow the reading direction instead of forcing physical
+     left, and any latin/number run embedded in arabic prose is isolated so it
+     can't reorder the surrounding sentence. */
+  input,
+  textarea,
+  select {
+    text-align: start;
+  }
+
+  bdi {
+    unicode-bidi: isolate;
+  }
 }
 
 @layer components {
@@ -172,6 +186,16 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Isolate a run of text from the surrounding bidi context. Pair with a
+     forced direction (e.g. dir="ltr") for emails, phone numbers, URLs. */
+  .bidi-isolate {
+    unicode-bidi: isolate;
+  }
+
+  .bidi-plaintext {
+    unicode-bidi: plaintext;
   }
 
   .mask-fade-bottom {

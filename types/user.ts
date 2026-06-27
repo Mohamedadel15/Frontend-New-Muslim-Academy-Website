@@ -27,6 +27,8 @@ export interface Certificate {
 export interface FAQItem {
   id: string;
   question: string;
+  questionAr?: string;
   answer: string;
+  answerAr?: string;
   category: 'general' | 'courses' | 'technical' | 'community' | 'mentorship';
 }

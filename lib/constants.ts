@@ -1,16 +1,21 @@
 export const SITE = {
-  name: 'New Muslim Academy',
-  shortName: 'NMA',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://newmuslimacademy.org',
+  name: "Da'wah & Guidance Society",
+  nameLong: "Da'wah, Guidance & Expatriate Awareness Society — Makkah",
+  nameAr: 'جمعية الدعوة والإرشاد',
+  nameArLong: 'جمعية الدعوة والإرشاد وتوعية الجاليات بمكة المكرمة',
+  shortName: 'DGS',
+  /** National Center for Non-Profit Sector registration number. */
+  registration: '3198',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dm.org.sa',
   description:
-    'Free online Islamic education for new Muslims. Structured courses, live sessions, mentorship, and a supportive community.',
-  email: 'HelpDesk@NewMuslimAcademy.org',
-  phone: '(917) 775-6299',
+    "A da'wah society in Makkah guiding new Muslims and serving expatriate communities — free courses, mentorship, and dedicated du'āt in every language.",
+  email: 'info@dm.org.sa',
+  phone: '0555545012',
   social: {
-    twitter: 'https://twitter.com/NewMuslimAcademy',
-    facebook: 'https://facebook.com/NewMuslimAcademy',
-    youtube: 'https://youtube.com/@NewMuslimAcademy',
-    instagram: 'https://instagram.com/aftershahaadah',
+    twitter: 'https://twitter.com/dmmakkah',
+    facebook: 'https://facebook.com/dmmakkah',
+    youtube: 'https://youtube.com/dmmakkah',
+    instagram: 'https://instagram.com/dmmakkah',
   },
 } as const;
 
