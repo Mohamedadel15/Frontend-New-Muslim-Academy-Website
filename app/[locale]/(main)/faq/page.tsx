@@ -16,14 +16,15 @@ export default async function FAQPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('faq.hero');
+  const tFaq = await getTranslations('faq');
 
   return (
     <>
       <PageHero
-        eyebrow="Help"
+        eyebrow={tFaq('eyebrow')}
         title={t('title')}
         subtitle={t('subtitle')}
-        breadcrumb={[{ href: '/faq', label: 'FAQ' }]}
+        breadcrumb={[{ href: '/faq', label: t('title') }]}
       />
       <FAQAccordion faqs={faqs} />
     </>

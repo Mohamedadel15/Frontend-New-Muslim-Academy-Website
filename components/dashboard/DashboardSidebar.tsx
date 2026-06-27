@@ -14,6 +14,7 @@ import {
   Upload,
   Compass,
   GraduationCap,
+  MessageCircle,
   type LucideIcon,
 } from 'lucide-react';
 import { Link, usePathname, useRouter } from '@/lib/navigation';
@@ -32,6 +33,7 @@ const learnerItems: Item[] = [
   { href: '/dashboard/sessions', label: 'My Sessions', Icon: Video, end: false },
   { href: '/dashboard/progress', label: 'Progress', Icon: TrendingUp, end: false },
   { href: '/dashboard/certificates', label: 'Certificates', Icon: Award, end: false },
+  { href: '/dashboard/messages', label: 'Messages', Icon: MessageCircle, end: false },
   { href: '/dashboard/settings', label: 'Settings', Icon: Settings, end: false },
 ];
 
@@ -42,6 +44,7 @@ const teacherItems: Item[] = [
   { href: '/dashboard/teacher/content', label: 'My content', Icon: Upload, end: false },
   { href: '/dashboard/teacher/subjects', label: 'Subjects I teach', Icon: GraduationCap, end: false },
   { href: '/dashboard/teacher/students', label: 'Students', Icon: Users, end: false },
+  { href: '/dashboard/messages', label: 'Messages', Icon: MessageCircle, end: false },
   { href: '/dashboard/settings', label: 'Settings', Icon: Settings, end: false },
 ];
 

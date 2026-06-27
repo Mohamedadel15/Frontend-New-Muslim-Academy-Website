@@ -1,44 +1,46 @@
 import type { Instructor } from '@/types/course';
 
+// The same du'āt as lib/mock-data/teachers.ts, shaped for course pages and the
+// About team grid. Keys are referenced from lib/mock-data/courses.ts.
 export const instructors: Record<string, Instructor> = {
-  yusuf: {
-    id: 'yusuf',
-    name: 'Sheikh Yusuf Rahman',
-    title: 'Aqeedah & Foundations',
-    bio: 'Graduate of Al-Azhar University with 18 years of teaching experience. Specialises in helping new Muslims build a sound understanding of Tawheed.',
-    image: 'https://images.unsplash.com/photo-1542178243-bc20204b769f?w=400&h=400&fit=crop',
-    specializations: ['Aqeedah', 'Tawheed', 'Comparative Religion'],
+  mansour: {
+    id: 'mansour-golam',
+    name: 'Dr. Mansour Golam',
+    title: 'Qur’an & Aqeedah · Burmese Community',
+    bio: 'PhD in Qur’an & Sunnah. Teaches the Burmese community of Makkah the foundations of belief and careful Qur’an recitation in their mother tongue.',
+    image: '/translators/mansour-golam.jpg',
+    specializations: ['Aqeedah', 'Qur’an', 'Tajweed'],
   },
-  aisha: {
-    id: 'aisha',
-    name: 'Ustadha Aisha Khan',
-    title: 'Quran & Tajweed',
-    bio: 'Ijazah in Hafs an Asim. Has taught Quran online to converts in over 30 countries for the past 12 years.',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop',
-    specializations: ['Quran Recitation', 'Tajweed', 'Arabic Phonetics'],
+  jamil: {
+    id: 'jamil-al-rahman',
+    name: 'Jamil Al-Rahman Qari Abdul Hamid',
+    title: 'Fiqh of Worship · Urdu-Speaking Community',
+    bio: 'Bachelor’s in Shari’ah. Guides the Urdu-speaking community through the practical fiqh of purification, prayer and fasting.',
+    image: '/translators/jamil-al-rahman.jpg',
+    specializations: ['Fiqh of Worship', 'Purification', 'Prayer'],
   },
-  abdullah: {
-    id: 'abdullah',
-    name: 'Imam Abdullah Mansour',
-    title: 'Worship & Fiqh',
-    bio: 'Imam of a community mosque in Chicago for 15 years. Author of "Your First Year as a Muslim".',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
-    specializations: ['Fiqh of Worship', 'Family Life', 'Convert Care'],
+  mohamed: {
+    id: 'mohamed-thani-ahmed',
+    name: 'Mohamed Thani Ahmed',
+    title: 'Aqeedah & Hadith · Ethiopian Community',
+    bio: 'Master’s in Hadith. Serves the Ethiopian community in Amharic, teaching sound belief and the Sunnah.',
+    image: '/translators/mohamed-thani-ahmed.jpg',
+    specializations: ['Aqeedah', 'Hadith', 'Convert Care'],
   },
-  hafsa: {
-    id: 'hafsa',
-    name: 'Dr. Hafsa Malik',
-    title: 'Islamic Character & Spirituality',
-    bio: 'PhD in Islamic Studies. Focuses on the practical application of Prophetic character in daily life.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop',
-    specializations: ['Tazkiyah', 'Akhlaq', 'Seerah'],
+  zain: {
+    id: 'zain-al-abidin',
+    name: 'Zain Al-Abidin Mohamed Abdul Aziz',
+    title: 'Tafseer & Daily Life · Filipino Community',
+    bio: 'Master’s in Shari’ah & Law. Helps the Filipino community understand the Qur’an and how Islam shapes everyday life.',
+    image: '/translators/zain-al-abidin.jpg',
+    specializations: ['Tafseer', 'Fiqh', 'Family Life'],
   },
-  ibrahim: {
-    id: 'ibrahim',
-    name: 'Ustadh Ibrahim Hassan',
-    title: 'Seerah & Islamic History',
-    bio: 'Historian and storyteller. Makes 1400 years of Islamic civilization feel as relevant as today.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
-    specializations: ['Seerah', 'Caliphate History', 'Islamic Civilization'],
+  akhyar: {
+    id: 'akhyar-rashidi',
+    name: 'Akhyar Rashidi',
+    title: 'Seerah & Islamic History · Indonesian Community',
+    bio: 'Bachelor’s in Hadith & Islamic Studies. Brings the life of the Prophet ﷺ to life for the Indonesian community.',
+    image: '/translators/akhyar-rashidi.jpg',
+    specializations: ['Seerah', 'Hadith', 'Islamic History'],
   },
 };

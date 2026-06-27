@@ -10,7 +10,7 @@ import { useBookingStore } from '@/stores/bookingStore';
 import { getSubject } from '@/lib/mock-data/subjects';
 
 export default function TeacherStudentsPage() {
-  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'sh-yusuf-bilal');
+  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'mohamed-thani-ahmed');
   const bookings = useBookingStore((s) => s.bookings);
 
   const students = useMemo(() => {

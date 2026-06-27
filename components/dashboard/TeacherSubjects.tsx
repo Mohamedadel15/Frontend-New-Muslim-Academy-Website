@@ -37,7 +37,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export function TeacherSubjects() {
-  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'sh-yusuf-bilal');
+  const teacherSlug = useAuthStore((s) => s.user?.teacherSlug ?? 'mohamed-thani-ahmed');
   const teacher = getTeacher(teacherSlug);
 
   const [selected, setSelected] = useState<SubjectSlug[]>(teacher?.subjects ?? []);

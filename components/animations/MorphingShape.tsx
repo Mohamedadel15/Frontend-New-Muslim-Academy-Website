@@ -27,27 +27,26 @@ export function GeometricStar({
           <stop offset="100%" stopColor="#a87d12" />
         </linearGradient>
       </defs>
+      {/* Eight-pointed Islamic star (khatam / najmah thumaniyya) formed by two
+          overlapping squares inside concentric circles — a traditional Islamic
+          geometric motif. (Replaces an earlier five-pointed star.) */}
       <g stroke="url(#goldGrad)" strokeWidth="0.7" fill="none">
-        <polygon
-          points="100,15 119,75 185,75 130,110 152,170 100,135 48,170 70,110 15,75 81,75"
-          opacity="0.7"
-        />
-        <polygon
-          points="100,40 117,80 160,80 125,108 140,150 100,125 60,150 75,108 40,80 83,80"
+        <circle cx="100" cy="100" r="92" opacity="0.25" />
+        <circle cx="100" cy="100" r="68" opacity="0.35" />
+        <circle cx="100" cy="100" r="46" opacity="0.45" />
+        <rect x="54" y="54" width="92" height="92" opacity="0.6" />
+        <rect
+          x="54"
+          y="54"
+          width="92"
+          height="92"
+          transform="rotate(45 100 100)"
           opacity="0.5"
         />
-        <circle cx="100" cy="100" r="92" opacity="0.3" />
-        <circle cx="100" cy="100" r="68" opacity="0.4" />
-        <circle cx="100" cy="100" r="45" opacity="0.5" />
-        <rect
-          x="62"
-          y="62"
-          width="76"
-          height="76"
-          transform="rotate(45 100 100)"
-          opacity="0.4"
+        <polygon
+          points="100,42 141,59 158,100 141,141 100,158 59,141 42,100 59,59"
+          opacity="0.5"
         />
-        <rect x="55" y="55" width="90" height="90" opacity="0.3" />
       </g>
     </motion.svg>
   );

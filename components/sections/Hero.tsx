@@ -57,7 +57,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-accent"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              New Muslim Academy
+              {t('badge')}
             </motion.div>
 
             <h1 className="font-display text-balance text-[clamp(2.75rem,6vw,5rem)] font-bold leading-[1.02] tracking-tight text-white">
@@ -111,8 +111,8 @@ export function Hero() {
                   <DialogTitle className="sr-only">Intro video</DialogTitle>
                   <div className="aspect-video bg-primary-900">
                     <iframe
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-                      title="New Muslim Academy"
+                      src="https://www.youtube.com/embed/nWymIx74gYc?rel=0"
+                      title="Da'wah & Guidance Society"
                       className="h-full w-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
                       allowFullScreen
@@ -134,11 +134,10 @@ export function Hero() {
               <div
                 className="absolute inset-0"
                 style={{
-                  backgroundImage: `url(https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=1200&q=80)`,
+                  backgroundImage: `url(/islamic/mosque-dome.jpg)`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  mixBlendMode: 'overlay',
-                  opacity: 0.6,
+                  opacity: 0.85,
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900 via-transparent to-transparent" />
@@ -146,11 +145,9 @@ export function Hero() {
               <div className="absolute inset-x-6 bottom-6">
                 <div className="glass-card rounded-2xl p-5">
                   <p className="text-xs uppercase tracking-[0.2em] text-accent mb-2">
-                    Watch the journey
+                    {t('cardEyebrow')}
                   </p>
-                  <p className="text-sm text-white">
-                    From shahadah to your first Salah — in your own words, at your own pace.
-                  </p>
+                  <p className="text-sm text-white">{t('cardText')}</p>
                 </div>
               </div>
             </div>

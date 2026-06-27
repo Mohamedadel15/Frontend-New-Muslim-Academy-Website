@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Clock, PlayCircle, ArrowRight } from 'lucide-react';
 import { Link } from '@/lib/navigation';
 import { Badge } from '@/components/ui/badge';
@@ -18,6 +18,10 @@ interface CourseCardProps {
 export function CourseCard({ course, progress }: CourseCardProps) {
   const t = useTranslations('courses.card');
   const tFilter = useTranslations('courses.filters');
+  const isAr = useLocale() === 'ar';
+
+  const title = isAr && course.titleAr ? course.titleAr : course.title;
+  const description = isAr && course.descriptionAr ? course.descriptionAr : course.description;
 
   return (
     <motion.article
@@ -29,7 +33,7 @@ export function CourseCard({ course, progress }: CourseCardProps) {
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src={course.thumbnail}
-            alt={course.title}
+            alt={title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -48,9 +52,9 @@ export function CourseCard({ course, progress }: CourseCardProps) {
 
         <div className="p-6">
           <h3 className="font-display text-xl leading-tight tracking-tight group-hover:text-accent transition-colors">
-            {course.title}
+            {title}
           </h3>
-          <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{course.description}</p>
+          <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{description}</p>
 
           <div className="mt-5 flex items-center justify-between text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5">

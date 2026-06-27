@@ -58,7 +58,9 @@ export const useAuthStore = create<AuthState>()(
                   ...s.user,
                   role,
                   teacherSlug:
-                    role === 'teacher' ? teacherSlug ?? s.user.teacherSlug ?? 'sh-yusuf-bilal' : undefined,
+                    role === 'teacher'
+                      ? teacherSlug ?? s.user.teacherSlug ?? 'mohamed-thani-ahmed'
+                      : undefined,
                 },
               }
             : s

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Calendar, Check, Clock, Mail, MessageSquare, User, Video } from 'lucide-react';
 import {
@@ -32,6 +33,14 @@ const DURATIONS = [30, 45, 60];
 export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: BookingModalProps) {
   const { user } = useAuthStore();
   const createBooking = useBookingStore((s) => s.createBooking);
+  const t = useTranslations('teachers.booking');
+  const isAr = useLocale() === 'ar';
+  const displayName = isAr && teacher.nameAr ? teacher.nameAr : teacher.name;
+  const firstName = displayName.split(' ')[0];
+  const subjName = (s: SubjectSlug) => {
+    const meta = getSubject(s);
+    return isAr && meta?.nameAr ? meta.nameAr : meta?.name ?? s;
+  };
 
   const [subject, setSubject] = useState<SubjectSlug>(
     defaultSubject ?? (teacher.subjects[0] as SubjectSlug)
@@ -88,18 +97,15 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
           <form onSubmit={handleSubmit} className="relative p-6 sm:p-8">
             <DialogHeader>
               <Badge className="w-fit border-0" style={{ background: `${subj?.color}1a`, color: subj?.color }}>
-                Book a session
+                {t('badge')}
               </Badge>
-              <DialogTitle className="mt-3">{teacher.name}</DialogTitle>
-              <DialogDescription>
-                Request a free one-on-one Zoom session. {teacher.name.split(' ')[0]} typically
-                confirms within 24 hours.
-              </DialogDescription>
+              <DialogTitle className="mt-3">{displayName}</DialogTitle>
+              <DialogDescription>{t('desc', { name: firstName })}</DialogDescription>
             </DialogHeader>
 
             <div className="mt-6 space-y-5">
               <div>
-                <label className="text-xs font-medium text-muted-foreground">Subject</label>
+                <label className="text-xs font-medium text-muted-foreground">{t('subject')}</label>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {teacher.subjects.map((s) => {
                     const meta = getSubject(s);
@@ -116,7 +122,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
                             : 'border-border/60 bg-card hover:border-accent/60 hover:text-accent'
                         )}
                       >
-                        {meta?.name ?? s}
+                        {isAr && meta?.nameAr ? meta.nameAr : meta?.name ?? s}
                       </button>
                     );
                   })}
@@ -124,7 +130,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
               </div>
 
               <div>
-                <label className="text-xs font-medium text-muted-foreground">Preferred slot</label>
+                <label className="text-xs font-medium text-muted-foreground">{t('slot')}</label>
                 <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
                   {teacher.availability.map((s) => (
                     <button
@@ -146,7 +152,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
               </div>
 
               <div>
-                <label className="text-xs font-medium text-muted-foreground">Duration</label>
+                <label className="text-xs font-medium text-muted-foreground">{t('duration')}</label>
                 <div className="mt-2 flex gap-2">
                   {DURATIONS.map((d) => (
                     <button
@@ -160,7 +166,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
                           : 'border-border/60 bg-card text-muted-foreground hover:border-accent/40'
                       )}
                     >
-                      {d} min
+                      {t('min', { count: d })}
                     </button>
                   ))}
                 </div>
@@ -169,7 +175,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
                   <label className="text-xs font-medium text-muted-foreground" htmlFor="bk-name">
-                    Your name
+                    {t('yourName')}
                   </label>
                   <div className="relative mt-2">
                     <User className="absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -177,7 +183,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
                       id="bk-name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="e.g. Hana"
+                      placeholder={t('namePlaceholder')}
                       required
                       className="pl-9 rtl:pl-3 rtl:pr-9"
                     />
@@ -185,7 +191,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
                 </div>
                 <div>
                   <label className="text-xs font-medium text-muted-foreground" htmlFor="bk-email">
-                    Email
+                    {t('email')}
                   </label>
                   <div className="relative mt-2">
                     <Mail className="absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -204,7 +210,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
 
               <div>
                 <label className="text-xs font-medium text-muted-foreground" htmlFor="bk-note">
-                  A short note (optional)
+                  {t('note')}
                 </label>
                 <div className="relative mt-2">
                   <MessageSquare className="absolute start-3 top-3 size-4 text-muted-foreground" />
@@ -212,7 +218,7 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
                     id="bk-note"
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
-                    placeholder="What would you like to focus on?"
+                    placeholder={t('notePlaceholder')}
                     className="pl-9 rtl:pl-3 rtl:pr-9 min-h-24"
                   />
                 </div>
@@ -222,10 +228,10 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
             <div className="mt-7 flex items-center justify-between rounded-2xl border border-border/60 bg-secondary/40 px-4 py-3">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Video className="size-3.5 text-accent" />
-                You’ll receive a Zoom link as soon as {teacher.name.split(' ')[0]} confirms.
+                {t('zoomNote', { name: firstName })}
               </div>
               <Button type="submit" disabled={submitting}>
-                {submitting ? 'Sending…' : 'Request session'}
+                {submitting ? t('submitting') : t('submit')}
               </Button>
             </div>
           </form>
@@ -238,23 +244,22 @@ export function BookingModal({ teacher, defaultSubject, open, onOpenChange }: Bo
             <div className="mx-auto grid size-16 place-items-center rounded-full bg-success/15 text-success">
               <Check className="size-7" />
             </div>
-            <h3 className="mt-5 font-display text-2xl">Request sent</h3>
+            <h3 className="mt-5 font-display text-2xl">{t('sentTitle')}</h3>
             <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
-              {teacher.name} will review your request. You’ll see the confirmation and Zoom link in
-              your dashboard.
+              {t('sentBody', { name: displayName })}
             </p>
-            <div className="mx-auto mt-6 grid max-w-sm gap-3 rounded-2xl border border-border/60 bg-card/60 p-4 text-left text-sm">
-              <Row icon={<User className="size-3.5 text-accent" />} k="Teacher" v={teacher.name} />
-              <Row icon={<Calendar className="size-3.5 text-accent" />} k="Slot" v={slot} />
-              <Row icon={<Clock className="size-3.5 text-accent" />} k="Duration" v={`${duration} min`} />
+            <div className="mx-auto mt-6 grid max-w-sm gap-3 rounded-2xl border border-border/60 bg-card/60 p-4 text-start text-sm">
+              <Row icon={<User className="size-3.5 text-accent" />} k={t('teacher')} v={displayName} />
+              <Row icon={<Calendar className="size-3.5 text-accent" />} k={t('slotLabel')} v={slot} />
+              <Row icon={<Clock className="size-3.5 text-accent" />} k={t('durationLabel')} v={t('min', { count: duration })} />
               <Row
                 icon={<Mail className="size-3.5 text-accent" />}
-                k="Subject"
-                v={subj?.name ?? subject}
+                k={t('subjectLabel')}
+                v={subjName(subject)}
               />
             </div>
             <Button className="mt-6" onClick={() => handleClose(false)}>
-              Done
+              {t('done')}
             </Button>
           </motion.div>
         )}

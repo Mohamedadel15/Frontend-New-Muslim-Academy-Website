@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -20,7 +21,7 @@ const sentences = [
 ];
 
 export function LoadingScreen({
-  label = 'New Muslim Academy',
+  label = "Da'wah & Guidance Society",
   caption,
   variant = 'full',
   autoFinish,
@@ -209,16 +210,6 @@ function IslamicGeometry({ progress }: { progress: number }) {
         />
       </motion.svg>
 
-      <motion.svg
-        viewBox="0 0 220 220"
-        className="absolute inset-0"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-      >
-        <Star8 cx={110} cy={110} r={70} stroke="#d4a017" opacity={0.85} />
-        <Star8 cx={110} cy={110} r={70} stroke="#f9d252" opacity={0.35} rotate={22.5} />
-      </motion.svg>
-
       <svg viewBox="0 0 220 220" className="absolute inset-0 -rotate-90">
         <circle cx="110" cy="110" r="90" stroke="rgba(255,255,255,0.05)" strokeWidth="3" fill="none" />
         <circle
@@ -236,16 +227,11 @@ function IslamicGeometry({ progress }: { progress: number }) {
       </svg>
 
       <motion.div
-        animate={{ scale: [1, 1.08, 1] }}
+        animate={{ scale: [1, 1.06, 1] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative grid size-20 place-items-center rounded-full border border-accent/40 bg-black/40 backdrop-blur-sm"
+        className="relative size-20 overflow-hidden rounded-full border border-accent/40 bg-white"
       >
-        <div
-          className="grid size-12 place-items-center rounded-full"
-          style={{ background: 'radial-gradient(circle, #f9d252, #d4a017 60%, #7c5c0d)' }}
-        >
-          <span className="font-display text-xl text-primary-foreground">N</span>
-        </div>
+        <Image src="/brand/society-emblem.png" alt="" fill sizes="80px" className="object-cover" />
       </motion.div>
 
       <motion.div
@@ -258,41 +244,6 @@ function IslamicGeometry({ progress }: { progress: number }) {
         }}
       />
     </div>
-  );
-}
-
-function Star8({
-  cx,
-  cy,
-  r,
-  stroke,
-  opacity = 1,
-  rotate = 0,
-}: {
-  cx: number;
-  cy: number;
-  r: number;
-  stroke: string;
-  opacity?: number;
-  rotate?: number;
-}) {
-  const pts: string[] = [];
-  for (let i = 0; i < 8; i++) {
-    const a = ((i * 45 + rotate) * Math.PI) / 180;
-    const x = cx + r * Math.cos(a);
-    const y = cy + r * Math.sin(a);
-    pts.push(`${x},${y}`);
-  }
-  const path = pts.map((p, i) => (i === 0 ? `M${p}` : `L${pts[(i * 3) % 8]}`)).join(' ') + 'Z';
-  return (
-    <path
-      d={path}
-      fill="none"
-      stroke={stroke}
-      strokeWidth={1.3}
-      opacity={opacity}
-      strokeLinejoin="round"
-    />
   );
 }
 

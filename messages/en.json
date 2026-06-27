@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "New Muslim Academy | New Muslim Classes Online",
-    "description": "Your Day-After-Shahadah people championing New Muslim education. Free online Islamic courses, mentorship, and community."
+    "title": "Da'wah & Guidance Society | Guiding New Muslims in Makkah",
+    "description": "A da'wah society in Makkah guiding new Muslims and serving expatriate communities — free Islamic courses, mentorship, and dedicated du'āt in every language."
   },
   "nav": {
     "home": "Home",
     "courses": "Courses",
-    "teachers": "Teachers",
+    "teachers": "Translators",
     "liveEvents": "Live Events",
     "blog": "Blog",
     "about": "About",
@@ -21,6 +21,7 @@
     "switchLanguage": "Switch language"
   },
   "hero": {
+    "badge": "Da'wah & Guidance Society",
     "eyebrow": "Your",
     "headline1": "Day-After-Shahadah",
     "headline2": "people championing the",
@@ -28,6 +29,8 @@
     "description": "Structured online Islamic courses, mentorship, and a community of new Muslims walking the same path — completely free.",
     "cta": "Get YOUR Free Access",
     "watchVideo": "Watch the intro",
+    "cardEyebrow": "Watch the journey",
+    "cardText": "From shahadah to your first Salah — in your own words, at your own pace.",
     "step1": "Watch Online Video Classes",
     "step2": "Meet & Connect with Community",
     "step3": "Complete Modules & Earn Certificates",
@@ -35,7 +38,7 @@
   },
   "resource": {
     "heading": "One Stop Resource Centre for New Muslim Classes Online",
-    "body": "If you think back to the moment you took your shahada and became a Muslim, you probably felt both excited and nervous all at once. Like the start of any new journey, adopting a new faith identity can feel really overwhelming at first — there are so many different things to learn and implement. That's where the New Muslim Academy comes in. When you become a member of the New Muslim Academy, you'll have access to a great community of people and resources that are relevant to your needs. NMA instructors are highly qualified and have been teaching Islam around the globe for many years. You'll be able to learn new things about the faith, engage in discussions with fellow new Muslims, and access a long list of experienced teachers and mentors. So join now and get started.",
+    "body": "If you think back to the moment you took your shahada and became a Muslim, you probably felt both excited and nervous all at once. Like the start of any new journey, adopting a new faith identity can feel really overwhelming at first — there are so many different things to learn and implement. That's where the Society comes in. When you join the Society, you'll have access to a great community of people and resources relevant to your needs. Our du'āt are highly qualified and have been teaching Islam to expatriate communities for many years. You'll be able to learn new things about the faith, engage in discussions with fellow new Muslims, and access a long list of experienced teachers and mentors. So join now and get started.",
     "cta": "Join Now"
   },
   "features": {
@@ -65,7 +68,8 @@
       "mentorship": "Mentorship From Start to Finish",
       "quran": "Quran Classes",
       "fatiha": "Private Help with Surat'l-Fatiha",
-      "certificates": "Certificates"
+      "certificates": "Certificates",
+      "forum": "Community Forum Access"
     },
     "cta": "Join Today"
   },
@@ -74,13 +78,13 @@
     "heading": "Words from our students",
     "items": [
       {
-        "quote": "NMA has filled a void that life can leave. Once I testified my Shahadah, even though I wanted to drop everything and move into a mosque (figuratively) to learn as much as possible, the constraints of life continued with work and my family. NMA has provided an opportunity to still get more knowledge than the weekly Khutbahs and self study of the Qur'an can provide.",
+        "quote": "The Society has filled a void that life can leave. Once I testified my Shahadah, even though I wanted to drop everything and move into a mosque (figuratively) to learn as much as possible, the constraints of life continued with work and my family. The Society has provided an opportunity to still get more knowledge than the weekly Khutbahs and self study of the Qur'an can provide.",
         "author": "Chris",
         "location": "Canada"
       },
       {
-        "quote": "The mentors at NMA truly care. They answered every question I had without judgment and guided me through my first Ramadan with patience and wisdom.",
-        "author": "Aisha",
+        "quote": "The mentors at the Society truly care. They answered every question I had without judgment and guided me through my first Ramadan with patience and wisdom.",
+        "author": "Adam",
         "location": "United Kingdom"
       },
       {
@@ -90,13 +94,13 @@
       },
       {
         "quote": "The structured curriculum gave me a roadmap when I had no idea where to start. Six months in and I'm praying five times a day with confidence.",
-        "author": "Maria",
+        "author": "Marco",
         "location": "Spain"
       }
     ]
   },
   "footer": {
-    "tagline": "Your Day-After-Shahadah support system.",
+    "tagline": "Guiding new Muslims and serving the expatriate communities of Makkah.",
     "quickLinks": "Quick Links",
     "resources": "Resources",
     "connect": "Connect",
@@ -105,7 +109,7 @@
     "helpDesk": "Help Desk",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
-    "copyright": "© {year} New Muslim Academy.",
+    "copyright": "© {year} Da'wah & Guidance Society, Makkah.",
     "madeWith": "Made with care for the Ummah",
     "newsletter": {
       "title": "Stay connected",
@@ -148,7 +152,9 @@
       "enroll": "Enroll for Free",
       "enrolled": "Enrolled",
       "lessons": "Lessons",
-      "modules": "Modules"
+      "modules": "Modules",
+      "playIntro": "Play intro video",
+      "introSoon": "Intro video coming soon"
     }
   },
   "events": {
@@ -192,9 +198,11 @@
   "faq": {
     "hero": {
       "title": "Frequently Asked Questions",
-      "subtitle": "Everything you might wonder about NMA — answered."
+      "subtitle": "Everything you might wonder about the Society — answered."
     },
     "search": "Search questions",
+    "noResults": "No questions match your search.",
+    "eyebrow": "Help",
     "categories": {
       "general": "General",
       "courses": "Courses",
@@ -204,23 +212,42 @@
     }
   },
   "about": {
+    "eyebrow": "About",
     "hero": {
-      "title": "Championing New Muslim Education Worldwide",
-      "subtitle": "Built by new Muslims, for new Muslims — with the guidance of seasoned scholars."
+      "title": "Da'wah, Guidance & New-Muslim Care in Makkah",
+      "subtitle": "A registered da'wah society guiding new Muslims and serving expatriate communities in their own languages."
+    },
+    "facts": {
+      "founded": "Founded",
+      "foundedValue": "1413 / 11 / 21 H",
+      "registration": "Registration No.",
+      "location": "Based in",
+      "locationValue": "Makkah Al-Mukarramah"
     },
     "story": {
       "title": "Our Story",
-      "body": "New Muslim Academy started in a coffee shop. A handful of converts, all asking the same question: “where were the people like us when we needed them?” We decided to be those people. Today, NMA serves tens of thousands of new Muslims in over 25 countries — every course, every mentor session, every certificate, free."
+      "body": "Since 1413H, the Da'wah & Guidance Society in Makkah has carried one mission: to convey Islam clearly and serve the expatriate communities who live in the shadow of the Sacred House. Through dedicated du'āt who teach in Amharic, Burmese, Urdu, Filipino and Indonesian, the Society walks beside the new Muslim — from a first shahadah to a confident, practising faith. Every course, every session, free."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "body": "A leading beacon of da'wah, spreading the Prophetic guidance."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "body": "A civil da'wah society that calls to Islam and guides to the truth through impactful, high-quality programs and advanced, varied technical methods — delivered by a creative team in a welcoming environment."
     },
     "stats": {
-      "students": "Students Worldwide",
+      "students": "New Muslims Guided",
       "courses": "Free Courses",
-      "countries": "Countries Reached",
-      "satisfaction": "Student Satisfaction"
+      "countries": "Communities Served",
+      "satisfaction": "Satisfaction"
     },
-    "team": "Meet the Team",
+    "teamEyebrow": "The people who serve you",
+    "team": "Our Translators",
     "partners": "Partners & Donors",
-    "joinTeam": "Join Our Team"
+    "joinTeam": "Join Our Team",
+    "joinTeamBody": "Are you a da'i, mentor, or volunteer who wants to support new Muslims and expatriate communities? We'd love to hear from you.",
+    "joinTeamCta": "Get in touch"
   },
   "contact": {
     "hero": {
@@ -237,9 +264,9 @@
       "error": "Something went wrong. Please try again."
     },
     "info": {
-      "email": "HelpDesk@NewMuslimAcademy.org",
-      "phone": "(917) 775-6299",
-      "hours": "9am – 5pm EST"
+      "email": "info@dm.org.sa",
+      "phone": "0555545012",
+      "hours": "9am – 5pm AST"
     }
   },
   "auth": {
@@ -298,11 +325,107 @@
     "learnMore": "Learn more",
     "tryAgain": "Try again",
     "notFound": "Not found",
-    "backHome": "Back to home"
+    "backHome": "Back to home",
+    "skipToContent": "Skip to main content"
   },
   "notFound": {
     "title": "Lost on the path?",
     "subtitle": "The page you're looking for has moved or never existed.",
     "cta": "Take me home"
+  },
+  "chat": {
+    "title": "Messages",
+    "connected": "Connected",
+    "connecting": "Connecting…",
+    "searchPlaceholder": "Search conversations",
+    "groupLabel": "Course group",
+    "teacherLabel": "Teacher",
+    "empty": "Select a conversation to start chatting.",
+    "emptyMessages": "No messages yet. Say salam!",
+    "online": "Online",
+    "offline": "Offline",
+    "participants": "{count} members",
+    "typing": "is typing…",
+    "composerPlaceholder": "Write a message…",
+    "send": "Send"
+  },
+  "teachers": {
+    "spotlightBadge": "1-on-1 with verified translators — free",
+    "spotlightTitle": "Pick a subject.",
+    "spotlightTitleAccent": "Book a session.",
+    "spotlightSubtitle": "Eight subjects, dozens of qualified translators, private sessions confirmed within 24 hours.",
+    "browseAll": "Browse all translators",
+    "vetted": "Every translator is vetted by the Society.",
+    "browserBadge": "One-on-one with qualified translators — always free",
+    "browserTitle": "Find a translator for what",
+    "browserTitleAccent": "you’re learning today.",
+    "browserSubtitle": "Pick a subject, browse verified translators, watch their lessons, then book a private session — at your pace.",
+    "pickSubject": "Pick a subject",
+    "clearFilter": "Clear filter",
+    "available": "{count} translators available",
+    "showingAll": "Showing all {count} translators",
+    "searchPlaceholder": "Search by name or expertise",
+    "sortTop": "Top rated",
+    "sortStudents": "Most students",
+    "sortActive": "Most active",
+    "noMatches": "No matches yet",
+    "noMatchesBody": "Try a different subject — every subject has a translator waiting.",
+    "resetFilters": "Reset filters",
+    "statSubjects": "Subjects",
+    "statSubjectsSub": "From Tajweed to Tafseer",
+    "statTeachers": "Verified translators",
+    "statTeachersSub": "Carefully vetted callers",
+    "statFree": "Free always",
+    "statFreeSub": "No fees, no upsells",
+    "browse": "Browse",
+    "teacherCount": "{count} translators",
+    "students": "students",
+    "reviews": "reviews",
+    "years": "years",
+    "teaching": "teaching",
+    "free": "FREE",
+    "perSession": "per session",
+    "verified": "Verified translator",
+    "freeSessions": "FREE sessions",
+    "requestSession": "Request a session",
+    "watchFirst": "Watch lessons first",
+    "nextOpening": "Next opening",
+    "sessionsCompleted": "Sessions completed",
+    "avgRating": "Avg. rating",
+    "bookNow": "Book now",
+    "tabLessons": "Lessons",
+    "tabAbout": "About",
+    "tabReviews": "Reviews",
+    "all": "All ({count})",
+    "noLessons": "No lessons in this subject yet.",
+    "subjectsLabel": "Subjects",
+    "languagesLabel": "Languages",
+    "availabilityLabel": "Availability",
+    "contactLabel": "Contact",
+    "readyToLearn": "Ready to learn with {name}?",
+    "readyBody": "Free private sessions, confirmed within 24 hours.",
+    "booking": {
+      "badge": "Book a session",
+      "desc": "Request a free one-on-one session. {name} typically confirms within 24 hours.",
+      "subject": "Subject",
+      "slot": "Preferred slot",
+      "duration": "Duration",
+      "yourName": "Your name",
+      "namePlaceholder": "e.g. Hamza",
+      "email": "Email",
+      "note": "A short note (optional)",
+      "notePlaceholder": "What would you like to focus on?",
+      "zoomNote": "You’ll receive a session link as soon as {name} confirms.",
+      "submit": "Request session",
+      "submitting": "Sending…",
+      "sentTitle": "Request sent",
+      "sentBody": "{name} will review your request. You’ll see the confirmation and link in your dashboard.",
+      "teacher": "Translator",
+      "slotLabel": "Slot",
+      "durationLabel": "Duration",
+      "subjectLabel": "Subject",
+      "done": "Done",
+      "min": "{count} min"
+    }
   }
 }

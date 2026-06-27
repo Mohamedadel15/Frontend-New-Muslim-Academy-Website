@@ -18,16 +18,20 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
   const t = useTranslations('blog');
   const tFilter = useTranslations('blog.filters');
   const locale = useLocale();
+  const isAr = locale === 'ar';
   const [filter, setFilter] = useState<string>('all');
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
+    const q = query.toLowerCase();
     return posts.filter((p) => {
       const matchCat = filter === 'all' || p.category === filter;
       const matchQ =
         !query ||
-        p.title.toLowerCase().includes(query.toLowerCase()) ||
-        p.excerpt.toLowerCase().includes(query.toLowerCase());
+        p.title.toLowerCase().includes(q) ||
+        p.excerpt.toLowerCase().includes(q) ||
+        (p.titleAr ?? '').toLowerCase().includes(q) ||
+        (p.excerptAr ?? '').toLowerCase().includes(q);
       return matchCat && matchQ;
     });
   }, [posts, filter, query]);
@@ -36,12 +40,12 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
     <section className="container-pad pb-24">
       <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="relative max-w-md flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+          <Search className="absolute start-4 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
           <Input
             placeholder={t('search')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="pl-11"
+            className="ps-11"
           />
         </div>
 
@@ -57,7 +61,10 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
       </div>
 
       <StaggerContainer className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
-        {filtered.map((post) => (
+        {filtered.map((post) => {
+          const title = isAr && post.titleAr ? post.titleAr : post.title;
+          const excerpt = isAr && post.excerptAr ? post.excerptAr : post.excerpt;
+          return (
           <StaggerItem key={post.slug}>
             <Link
               href={`/blog/${post.slug}` as never}
@@ -66,7 +73,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={post.coverImage}
-                  alt={post.title}
+                  alt={title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -77,10 +84,10 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               </div>
               <div className="p-6">
                 <h3 className="font-display text-xl leading-tight group-hover:text-accent transition-colors">
-                  {post.title}
+                  {title}
                 </h3>
                 <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
-                  {post.excerpt}
+                  {excerpt}
                 </p>
                 <div className="mt-5 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -109,11 +116,14 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               </div>
             </Link>
           </StaggerItem>
-        ))}
+          );
+        })}
       </StaggerContainer>
 
       {filtered.length === 0 && (
-        <p className="mt-12 text-center text-muted-foreground">No articles found.</p>
+        <p className="mt-12 text-center text-muted-foreground">
+          {isAr ? 'لا توجد مقالات.' : 'No articles found.'}
+        </p>
       )}
     </section>
   );

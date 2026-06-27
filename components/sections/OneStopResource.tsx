@@ -45,8 +45,8 @@ export function OneStopResource() {
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/20 to-secondary-500/10 blur-2xl" />
                 <div className="relative h-full overflow-hidden rounded-3xl border border-accent/20 shadow-elevated">
                   <Image
-                    src="https://images.unsplash.com/photo-1542178243-bc20204b769f?w=1000&q=80"
-                    alt="Smiling member of New Muslim Academy"
+                    src="/islamic/quran-book.jpg"
+                    alt="The Holy Qur'an"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"

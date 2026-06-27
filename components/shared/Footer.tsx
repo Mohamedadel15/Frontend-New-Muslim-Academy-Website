@@ -120,7 +120,7 @@ export function Footer() {
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row">
           <p>{t('copyright', { year })}</p>
           <p className="flex items-center gap-1.5">
-            {t('madeWith')} <span className="text-accent">•</span> NMA
+            {t('madeWith')} <span className="text-accent">•</span> Reg. {SITE.registration}
           </p>
         </div>
       </div>
